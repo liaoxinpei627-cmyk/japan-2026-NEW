@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>京阪神金澤｜六日旅行札記</title>
+<meta name="theme-color" content="#b9d2e6">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon_photo.png">
+<link rel="icon" type="image/png" sizes="512x512" href="apple-touch-icon_photo.png">
+<meta name="apple-mobile-web-app-title" content="京阪神旅行札記">
+<meta name="application-name" content="京阪神旅行札記">
+<style>
+:root{
+  --bg:#f8fbfd; --paper:#fffefe; --ink:#3c414b; --muted:#7d8490;
+  --line:#dde8ef; --blue:#b9d2e6; --blue2:#eaf4fb; --pink:#efd6de;
+  --pink2:#fbedf1; --cream:#fff8ef; --accent:#7fa7c7; --rose:#d7a4b1;
+  --shadow:0 12px 28px rgba(91,111,130,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--ink); line-height:1.65;
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  background:radial-gradient(circle at top left,#e7f3fb 0,#f9fbfd 38%,#fff3f6 100%);
+}
+header{
+  position:sticky;top:0;z-index:20;padding:18px 16px 14px;
+  background:rgba(255,255,255,.88);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+h1{margin:0;font-size:23px;letter-spacing:.5px}
+.subtitle{color:#6f7782;font-size:13px;margin-top:2px}
+main{max-width:980px;margin:auto;padding:14px 12px 96px}
+.hero,.card{
+  background:rgba(255,254,254,.96);border:1px solid var(--line);
+  border-radius:26px;box-shadow:var(--shadow);padding:18px;margin:14px 0;overflow:hidden;
+}
+.hero{
+  background:linear-gradient(145deg,#e5f3fb,#fbedf1 62%,#fffaf6);
+}
+.hero h2{font-size:28px;margin:8px 0 5px}
+h2{font-size:21px;margin:0 0 10px}
+h3{font-size:16px;margin:16px 0 7px}
+p{margin:6px 0}
+.tag{display:inline-block;border-radius:999px;padding:5px 10px;margin:3px 4px 5px 0;font-size:12.5px;font-weight:800;background:var(--blue2);color:#57758d}
+.tag.pink{background:var(--pink2);color:#8c6570}.tag.cream{background:var(--cream);color:#8a6b46}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.mini{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px}
+.mini b{display:block;margin-bottom:4px}
+.dayHead{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.badge{min-width:58px;text-align:center;border-radius:16px;background:linear-gradient(135deg,var(--blue),var(--pink));padding:8px 6px;font-weight:900;color:#fff;line-height:1.15}
+.timeline{border-left:4px solid var(--blue2);padding-left:12px}
+.time{font-weight:900;color:#5f7d95}
+.note{background:#fff8ec;border:1px solid #eadcc7;border-radius:16px;padding:11px;margin:10px 0;color:#695b49}
+.warn{background:#fbedf1;border:1px solid #ecd1da;border-radius:16px;padding:11px;margin:10px 0;color:#765864}
+.soft{background:#f5f8fb;border:1px solid var(--line);border-radius:16px;padding:11px;margin:10px 0}
+table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff;border-radius:14px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:9px 8px;text-align:left;vertical-align:top;font-size:13px}
+th{background:#edf6fb;color:#5c7387}
+.money{font-weight:900;color:#9b6875}
+.maplinks{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0 4px}
+.maplinks a,.pillbtn{
+  display:inline-block;text-decoration:none;border-radius:999px;padding:7px 10px;font-size:12.5px;font-weight:900;
+  background:#edf6fb;color:#5c7387;border:1px solid #d8e7f0;
+}
+.maplinks a.pink{background:#fbedf1;color:#86626d;border-color:#efd4dc}
+.food{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;margin:9px 0}
+.food small{color:var(--muted)}
+input,select,textarea{
+  width:100%;border:1px solid var(--line);border-radius:14px;background:#fff;padding:10px;
+  color:var(--ink);font-size:14px;font-family:inherit;
+}
+textarea{min-height:100px;resize:vertical}
+.formgrid{display:grid;grid-template-columns:1.2fr .8fr .8fr .9fr .9fr;gap:8px}
+button{
+  border:0;border-radius:14px;background:var(--accent);color:#fff;padding:10px 13px;
+  font-weight:900;font-size:13px;cursor:pointer
+}
+button.pink{background:var(--rose)} button.gray{background:#93a0ad}
+button.danger{background:#b86f76}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.totals{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.totalbox{background:#f8f5fb;border:1px solid var(--line);border-radius:16px;padding:12px}
+.totalbox b{display:block;font-size:22px;margin-top:2px}
+.item{display:flex;justify-content:space-between;gap:8px;align-items:center;border-bottom:1px dashed var(--line);padding:9px 0;font-size:14px}
+.item span:first-child{flex:1}
+.item button{padding:4px 8px;background:#e9eef4;color:#657789}
+.checklist{list-style:none;padding:0}
+.checklist li{border-bottom:1px dashed var(--line);padding:8px 0}
+.checklist input{width:auto;margin-right:8px}
+.tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:3px}
+.tabs a{white-space:nowrap;text-decoration:none;border-radius:999px;padding:8px 11px;background:#edf6fb;color:#5d7185;font-size:12.5px;font-weight:900}
+.bottomnav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));display:flex;gap:6px;overflow-x:auto
+}
+.bottomnav a{white-space:nowrap;text-decoration:none;color:#5d7185;background:#edf6fb;border-radius:999px;padding:8px 11px;font-size:12.5px;font-weight:900}
+.routeTip{font-size:12.5px;color:var(--muted);margin-top:5px}
+.diaryBox{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;margin:9px 0}
+@media(max-width:760px){.grid,.totals{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr 1fr}.formgrid input:first-child{grid-column:1/-1}.hero h2{font-size:24px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>京阪神金澤｜六日旅行札記</h1>
+  <div class="subtitle">哥哥說要帶我出去玩耶逼</div>
+</header>
+
+<main>
+<section class="hero" id="top">
+  <span class="tag">線上旅遊札記</span><span class="tag pink">日誌＋記帳</span><span class="tag cream">交通美食地圖</span>
+  <h2>從神戶海邊開始，到京都和服，把夏天慢慢收進口袋。</h2>
+  
+  <div class="grid">
+    <div class="mini"><b>去程</b>6/16 07:35 台北 → 大阪</div>
+    <div class="mini"><b>神戶住宿</b>神戶元町東急REI飯店</div>
+    <div class="mini"><b>大阪住宿</b>6/17–6/21 JS 曉宅・凱</div>
+    <div class="mini"><b>金澤住宿</b>6/21–6/27 KOKO HOTEL 金沢駅前</div>
+  </div>
+  <div class="tabs">
+    <a href="#transport">交通總覽</a><a href="#d0616">6/16</a><a href="#d0617">6/17</a><a href="#d0618">6/18</a><a href="#d0619">6/19</a><a href="#d0620">6/20</a><a href="#d0621">6/21</a><a href="#diary">日誌</a><a href="#budget">記帳</a>
+  </div>
+</section>
+
+<section class="card" id="transport">
+  <h2>交通總覽</h2>
+  <p>最省腦買法：<b>關西市區用 ICOCA / KANSAI ONE PASS 刷卡</b>，6/21 到金澤用 <b>HOKURIKU One-way Ticket</b>。不用買整張 JR Pass。</p>
+  <div class="soft">
+    <b>6/17 或 6/18 劃位任務：</b>到大阪站或新大阪站 JR 綠色窗口，請站務員幫你和男友劃 6/21 大阪/新大阪 → 金澤的同一班相鄰座位。<br>
+    英文：<b>Osaka to Kanazawa, June 21, around noon. Seats together, please.</b>
+  </div>
+  <table>
+    <tr><th>日期</th><th>移動</th><th>交通方式</th><th>注意</th></tr>
+    <tr><td>6/16</td><td>KIX → 神戶</td><td>Bay Shuttle 高速船 → Port Liner → 元町</td><td>外國旅客船票約 ¥500，帶護照。</td></tr>
+    <tr><td>6/17</td><td>神戶 → 大阪</td><td>神戶站 / 三宮 / 元町 → 大阪站 → 天下茶屋</td><td>到大阪站可順便劃金澤座位。</td></tr>
+    <tr><td>6/18</td><td>大阪 → USJ</td><td>西九条轉環球城站</td><td>開園前 45–60 分鐘到。</td></tr>
+    <tr><td>6/19</td><td>大阪 ⇄ 京都</td><td>到河原町/祇園/清水寺周邊</td><td>和服店選同區，少轉車。</td></tr>
+    <tr><td>6/20</td><td>大阪市區</td><td>大國町、天王寺、梅田、難波/日本橋</td><td>市區刷 IC 卡即可。</td></tr>
+    <tr><td>6/21</td><td>大阪 → 金澤</td><td>Thunderbird 到敦賀 → 北陸新幹線到金澤</td><td>建議 11:00–14:00 出發。</td></tr>
+  </table>
+  <h3>地圖快速索引</h3>
+  <div class="maplinks">
+    <a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank">關西機場</a>
+    <a href="https://maps.google.com/?q=Kobe+Motomachi+Tokyu+REI+Hotel" target="_blank">神戶飯店</a>
+    <a href="https://maps.google.com/?q=Universal+Studios+Japan" target="_blank">USJ</a>
+    <a href="https://maps.google.com/?q=Kyoto+Kawaramachi+Station" target="_blank">京都河原町</a>
+    <a href="https://maps.google.com/?q=Osaka+Kizu+Market" target="_blank">木津市場</a>
+    <a href="https://maps.google.com/?q=Kanazawa+Station" target="_blank">金澤站</a>
+  </div>
+</section>
+
+<section class="card" id="overview">
+  <h2>六天總覽</h2>
+  <table>
+    <tr><th>日期</th><th>主題</th><th>住宿</th></tr>
+    <tr><td>6/16</td><td>抵達日本，搭高速船去神戶，生田神社與港邊</td><td>神戶元町東急REI飯店</td></tr>
+    <tr><td>6/17</td><td>須磨浦山上遊園、麵包超人，晚上進大阪</td><td>大阪 JS</td></tr>
+    <tr><td>6/18</td><td>USJ 環球影城</td><td>大阪 JS</td></tr>
+    <tr><td>6/19</td><td>京都和服六週年：明信片、小禮物、氛圍晚餐</td><td>大阪 JS</td></tr>
+    <tr><td>6/20</td><td>大阪美食與購物：木津市場、卡比、動漫、和牛</td><td>大阪 JS</td></tr>
+    <tr><td>6/21</td><td>中午前後前往金澤</td><td>金澤</td></tr>
+  </table>
+</section>
+
+<section class="card" id="d0616">
+  <div class="dayHead"><div class="badge">6/16<br>二</div><h2>神戶開場：抵達日本的第一天</h2></div>
+  <span class="tag">高速船</span><span class="tag pink">生田神社</span><span class="tag">港邊夜景</span>
+  <div class="timeline">
+    <p><span class="time">07:35</span> 台北飛大阪。</p>
+    <p><span class="time">中午</span> 關西機場出關，買 Bay Shuttle 外國旅客票。</p>
+    <p><span class="time">下午</span> 神戶機場 → Port Liner → 三宮/元町 → 神戶元町東急REI飯店。</p>
+    <p><span class="time">傍晚</span> 生田神社水占卜。</p>
+    <p><span class="time">晚上</span> Harborland / Mosaic 港邊散步。</p>
+  </div>
+  <h3>今日地圖</h3>
+  <div class="maplinks">
+    <a href="https://maps.google.com/?q=Kobe+Motomachi+Tokyu+REI+Hotel" target="_blank">神戶元町東急REI</a>
+    <a class="pink" href="https://maps.google.com/?q=Ikuta+Shrine+Kobe" target="_blank">生田神社</a>
+    <a href="https://maps.google.com/?q=Kobe+Harborland+Mosaic" target="_blank">Harborland</a>
+  </div>
+  <h3>美食備案</h3>
+  <div class="food"><b>南京町小吃</b><br><small>肉包、小籠包、可樂餅、胡麻團子。第一天不要吃太撐。</small></div>
+  <div class="food"><b>港邊便利商店甜點</b><br><small>買飲料、飯糰、小蛋糕去港邊坐一下，很有旅行開場感。</small></div>
+</section>
+
+<section class="card" id="d0617">
+  <div class="dayHead"><div class="badge">6/17<br>三</div><h2>神戶復古可愛日，晚上進大阪</h2></div>
+  <span class="tag">須磨浦</span><span class="tag pink">麵包超人鑰匙圈</span><span class="tag">大阪入住</span>
+  <div class="timeline">
+    <p><span class="time">上午</span> 飯店退房 → 須磨浦山上遊園。</p>
+    <p><span class="time">中午</span> 南京町/元町午餐。</p>
+    <p><span class="time">下午</span> 神戶麵包超人 Mall 做鑰匙圈。</p>
+    <p><span class="time">傍晚</span> 神戶站 → 大阪站，若不太累就辦 6/21 金澤劃位。</p>
+    <p><span class="time">晚上</span> 大阪 JS 曉宅・凱入住，簡單吃飯休息。</p>
+  </div>
+  <h3>今日地圖</h3>
+  <div class="maplinks">
+    <a href="https://maps.google.com/?q=Sumaura+Yuen" target="_blank">須磨浦山上遊園</a>
+    <a href="https://maps.google.com/?q=Nankinmachi+Kobe" target="_blank">南京町</a>
+    <a class="pink" href="https://maps.google.com/?q=Kobe+Anpanman+Children%27s+Museum+%26+Mall" target="_blank">麵包超人 Mall</a>
+    <a href="https://maps.google.com/?q=Osaka+Station" target="_blank">大阪站劃位</a>
+    <a href="https://maps.google.com/?q=Tengachaya+Station" target="_blank">天下茶屋</a>
+  </div>
+  <h3>美食備案</h3>
+  <div class="food"><b>南京町：神戶牛可樂餅＋小吃</b><br><small>想吃神戶牛感但不爆預算，這天很適合。</small></div>
+  <div class="food"><b>大阪晚上：章魚燒 / 拉麵 / 迴轉壽司</b><br><small>移動日不要吃太複雜。</small></div>
+</section>
+
+<section class="card" id="d0618">
+  <div class="dayHead"><div class="badge">6/18<br>四</div><h2>USJ 環球影城日</h2></div>
+  <span class="tag">平日比較友善</span><span class="tag pink">早到很重要</span><span class="tag">高花費日</span>
+  <div class="timeline">
+    <p><span class="time">開園前 45–60 分鐘</span> 抵達 USJ，進園後先看 Super Nintendo World 整理券。</p>
+    <p><span class="time">上午</span> 先衝最想玩的區域。</p>
+    <p><span class="time">下午</span> 逛商店、拍照、補設施。</p>
+    <p><span class="time">晚上</span> 視體力看夜景或早點回大阪休息，隔天是六週年和服日。</p>
+  </div>
+  <h3>今日地圖</h3>
+  <div class="maplinks">
+    <a href="https://maps.google.com/?q=Universal+City+Station+Osaka" target="_blank">環球城站</a>
+    <a class="pink" href="https://maps.google.com/?q=Universal+Studios+Japan" target="_blank">USJ</a>
+    <a href="https://maps.google.com/?q=Nishikujo+Station" target="_blank">西九条轉乘</a>
+  </div>
+  <h3>美食備案</h3>
+  <div class="food"><b>園內速食/套餐</b><br><small>方便快速，別為了吃排太久。</small></div>
+  <div class="food"><b>出園後烏龍麵 / 便利商店宵夜</b><br><small>隔天和服日，晚上不要太晚、不要太油膩。</small></div>
+</section>
+
+<section class="card" id="d0619">
+  <div class="dayHead"><div class="badge">6/19<br>五</div><h2>京都和服六週年</h2></div>
+  <span class="tag pink">和服</span><span class="tag">明信片</span><span class="tag cream">氛圍晚餐</span>
+  <div class="timeline">
+    <p><span class="time">08:30–09:00</span> 大阪出發去京都。</p>
+    <p><span class="time">10:30–11:30</span> 祇園/清水寺/河原町附近換和服與髮型。</p>
+    <p><span class="time">11:30–13:30</span> 八坂庚申堂、二年坂三年坂、清水寺外圍。</p>
+    <p><span class="time">13:30–14:30</span> 午餐：蕎麥麵/烏龍麵/輕日式餐。</p>
+    <p><span class="time">14:30–16:30</span> 八坂神社、祇園白川、鴨川交換明信片＋小禮物。</p>
+    <p><span class="time">16:30–17:30</span> 還和服。</p>
+    <p><span class="time">18:00–19:30</span> 有氛圍的和牛壽喜燒/日式晚餐。</p>
+    <p><span class="time">晚上</span> 買小蛋糕回大阪，寫給 2027/6/19 的未來明信片。</p>
+  </div>
+  <h3>今日地圖</h3>
+  <div class="maplinks">
+    <a href="https://maps.google.com/?q=Kyoto+Kawaramachi+Station" target="_blank">京都河原町</a>
+    <a href="https://maps.google.com/?q=Yasaka+Koshindo+Kyoto" target="_blank">八坂庚申堂</a>
+    <a class="pink" href="https://maps.google.com/?q=Sannenzaka+Kyoto" target="_blank">二年坂三年坂</a>
+    <a href="https://maps.google.com/?q=Gion+Shirakawa+Kyoto" target="_blank">祇園白川</a>
+    <a class="pink" href="https://maps.google.com/?q=Kamogawa+River+Kyoto" target="_blank">鴨川</a>
+    <a href="https://maps.google.com/?q=Pontocho+Kyoto+sukiyaki" target="_blank">先斗町壽喜燒搜尋</a>
+  </div>
+  <h3>美食備案</h3>
+  <div class="food"><b>午餐：蕎麥麵/烏龍麵</b><br><small>穿和服吃最不狼狽，清爽又有日式感。</small></div>
+  <div class="food"><b>晚餐：高 CP 氛圍和牛壽喜燒</b><br><small>優先查富之上/富之上2號店、祇園牛禪、但馬屋四条河原町。想更有京都感就找先斗町。</small></div>
+  <div class="food"><b>小蛋糕</b><br><small>京都高島屋 B1 或河原町甜點區，買兩個小蛋糕回小宅吃。</small></div>
+</section>
+
+<section class="card" id="d0620">
+  <div class="dayHead"><div class="badge">6/20<br>六</div><h2>大阪美食與購物日</h2></div>
+  <span class="tag">木津市場</span><span class="tag pink">卡比</span><span class="tag">動漫周邊</span><span class="tag cream">和牛</span>
+  <div class="timeline">
+    <p><span class="time">08:30–10:30</span> 木津市場海鮮早午餐。</p>
+    <p><span class="time">中午</span> 天王寺 Kirby Café PETIT。</p>
+    <p><span class="time">下午</span> 梅田 Nintendo OSAKA / Pokémon Center。</p>
+    <p><span class="time">傍晚</span> 日本橋 Den Den Town。</p>
+    <p><span class="time">晚上</span> 和牛壽喜燒、涮涮鍋或燒肉。</p>
+  </div>
+  <h3>今日地圖</h3>
+  <div class="maplinks">
+    <a href="https://maps.google.com/?q=Osaka+Kizu+Market" target="_blank">木津市場</a>
+    <a class="pink" href="https://maps.google.com/?q=Kirby+Cafe+PETIT+Tennoji" target="_blank">Kirby Café PETIT</a>
+    <a href="https://maps.google.com/?q=Nintendo+OSAKA" target="_blank">Nintendo OSAKA</a>
+    <a href="https://maps.google.com/?q=Pokemon+Center+Osaka" target="_blank">Pokémon Center Osaka</a>
+    <a class="pink" href="https://maps.google.com/?q=Nipponbashi+Den+Den+Town" target="_blank">日本橋電電城</a>
+    <a href="https://maps.google.com/?q=Namba+sukiyaki+wagyu" target="_blank">難波和牛壽喜燒搜尋</a>
+  </div>
+  <h3>美食備案</h3>
+  <div class="food"><b>木津市場海鮮</b><br><small>海鮮丼、壽司、烤海鮮、玉子燒。建議中午前到。</small></div>
+  <div class="food"><b>晚上和牛壽喜燒/燒肉</b><br><small>這天是大阪美食主力日，可以把肉肉餐放這裡。</small></div>
+</section>
+
+<section class="card" id="d0621">
+  <div class="dayHead"><div class="badge">6/21<br>日</div><h2>大阪收尾，前往金澤</h2></div>
+  <span class="tag">移動日</span><span class="tag pink">中午前後出發</span>
+  <div class="timeline">
+    <p><span class="time">08:30–09:30</span> 起床整理行李。</p>
+    <p><span class="time">10:00</span> 退房。</p>
+    <p><span class="time">10:30–11:30</span> 大阪站/新大阪站吃午餐或買便當。</p>
+    <p><span class="time">12:00 左右</span> 搭車去金澤。</p>
+    <p><span class="time">15:00 左右</span> 抵達金澤，入住/寄放行李。</p>
+    <p><span class="time">傍晚</span> 金澤站、百番街簡單逛，早點休息。</p>
+  </div>
+  <h3>今日地圖</h3>
+  <div class="maplinks">
+    <a href="https://maps.google.com/?q=Osaka+Station" target="_blank">大阪站</a>
+    <a href="https://maps.google.com/?q=Shin-Osaka+Station" target="_blank">新大阪站</a>
+    <a href="https://maps.google.com/?q=Tsuruga+Station" target="_blank">敦賀站</a>
+    <a class="pink" href="https://maps.google.com/?q=Kanazawa+Station" target="_blank">金澤站</a>
+    <a href="https://maps.google.com/?q=KOKO+HOTEL+Kanazawa+Ekimae" target="_blank">KOKO HOTEL 金沢駅前</a>
+  </div>
+  <div class="note">這天不要跑遠景點。早上彈性留在大阪/新大阪車站附近，穩穩去金澤比較重要。</div>
+</section>
+
+<section class="card" id="diary">
+  <h2>旅行日誌</h2>
+  <p>每天晚上簡單記一下：今天最好笑的事、最好吃的東西、最喜歡的照片、花最多錢的瞬間。</p>
+  <select id="diaryDay">
+    <option>6/16 神戶開場</option><option>6/17 神戶→大阪</option><option>6/18 USJ</option><option>6/19 京都和服六週年</option><option>6/20 大阪美食購物</option><option>6/21 前往金澤</option>
+  </select>
+  <textarea id="diaryText" placeholder="今天的旅行札記..."></textarea>
+  <div class="btnrow"><button onclick="saveDiary()">儲存日誌</button><button class="gray" onclick="copyDiary()">複製全部日誌</button></div>
+  <div id="diaryList"></div>
+</section>
+
+<section class="card" id="budget">
+  <h2>旅行記帳本</h2>
+  <p>輸入項目後會自動加總，資料會存在這台手機/瀏覽器裡。台幣粗估用 ¥1 ≈ NT$0.22。</p>
+  <div class="formgrid">
+    <input id="itemName" placeholder="項目，例如：和服、壽司、卡比甜點">
+    <input id="itemAmount" type="number" inputmode="numeric" placeholder="金額">
+    <select id="itemCurrency"><option value="JPY">¥ 日圓</option><option value="TWD">NT$ 台幣</option></select>
+    <select id="itemDay"><option>6/16</option><option>6/17</option><option>6/18</option><option>6/19</option><option>6/20</option><option>6/21</option><option>金澤</option><option>首爾</option><option>其他</option></select>
+    <select id="itemCat"><option>吃飯</option><option>交通</option><option>住宿</option><option>門票</option><option>購物</option><option>甜點咖啡</option><option>紀念日</option><option>其他</option></select>
+  </div>
+  <div class="btnrow"><button onclick="addExpense()">新增一筆</button><button class="gray" onclick="exportExpenses()">複製紀錄</button><button class="danger" onclick="clearExpenses()">清空</button></div>
+  <div class="totals"><div class="totalbox">日圓總計 <b id="jpyTotal">¥0</b></div><div class="totalbox">台幣粗估 <b id="twdTotal">NT$0</b></div></div>
+  <div id="expenseList"></div>
+</section>
+
+<section class="card" id="todo">
+  <h2>出發前待辦</h2>
+  <ul class="checklist">
+    <li><input type="checkbox">確認神戶元町東急REI飯店訂房</li>
+    <li><input type="checkbox">預約 6/19 京都和服店</li>
+    <li><input type="checkbox">購買 6/18 USJ 門票，下載 USJ App</li>
+    <li><input type="checkbox">購買 HOKURIKU One-way Ticket：大阪→金澤</li>
+    <li><input type="checkbox">6/17 或 6/18 到 JR 綠色窗口劃 6/21 座位</li>
+    <li><input type="checkbox">準備明信片、信封、貼紙、筆</li>
+    <li><input type="checkbox">設定 USJ / 卡比 / 動漫周邊購物上限</li>
+  </ul>
+</section>
+</main>
+
+<nav class="bottomnav">
+  <a href="#top">首頁</a><a href="#transport">交通</a><a href="#d0616">6/16</a><a href="#d0617">6/17</a><a href="#d0618">6/18</a><a href="#d0619">6/19</a><a href="#d0620">6/20</a><a href="#d0621">6/21</a><a href="#diary">日誌</a><a href="#budget">記帳</a>
+</nav>
+
+<script>
+const RATE = 0.22;
+let expenses = JSON.parse(localStorage.getItem("tripExpensesV2") || "[]");
+let diaries = JSON.parse(localStorage.getItem("tripDiariesV2") || "{}");
+
+function saveExpenseData(){ localStorage.setItem("tripExpensesV2", JSON.stringify(expenses)); }
+function addExpense(){
+  const name=document.getElementById("itemName").value.trim()||"未命名";
+  const amount=Number(document.getElementById("itemAmount").value);
+  if(!amount||amount<=0){ alert("先輸入金額！"); return; }
+  expenses.push({
+    name, amount,
+    currency:document.getElementById("itemCurrency").value,
+    day:document.getElementById("itemDay").value,
+    cat:document.getElementById("itemCat").value
+  });
+  document.getElementById("itemName").value=""; document.getElementById("itemAmount").value="";
+  saveExpenseData(); renderExpenses();
+}
+function deleteExpense(i){ expenses.splice(i,1); saveExpenseData(); renderExpenses(); }
+function clearExpenses(){ if(confirm("確定清空所有記帳？")){ expenses=[]; saveExpenseData(); renderExpenses(); } }
+function exportExpenses(){
+  const rows=expenses.map(e=>`${e.day}｜${e.cat}｜${e.name}｜${e.currency==="JPY"?"¥":"NT$"}${Number(e.amount).toLocaleString()}`).join("\\n");
+  const text=`京阪神金澤旅行記帳\\n${rows||"目前沒有紀錄"}\\n\\n${document.getElementById("jpyTotal").textContent}\\n${document.getElementById("twdTotal").textContent}`;
+  navigator.clipboard.writeText(text).then(()=>alert("已複製記帳紀錄！")).catch(()=>alert(text));
+}
+function renderExpenses(){
+  const totalJPY=expenses.reduce((s,e)=>s+(e.currency==="JPY"?e.amount:e.amount/RATE),0);
+  const totalTWD=expenses.reduce((s,e)=>s+(e.currency==="TWD"?e.amount:e.amount*RATE),0);
+  document.getElementById("jpyTotal").textContent="¥"+Math.round(totalJPY).toLocaleString();
+  document.getElementById("twdTotal").textContent="NT$"+Math.round(totalTWD).toLocaleString();
+  const list=document.getElementById("expenseList");
+  list.innerHTML=expenses.length?expenses.map((e,i)=>`<div class="item"><span>${e.day}｜${e.cat}｜${e.name}</span><b>${e.currency==="JPY"?"¥":"NT$"}${Number(e.amount).toLocaleString()}</b><button onclick="deleteExpense(${i})">刪</button></div>`).join(""):'<p class="routeTip">還沒有紀錄，從第一杯飲料開始也可以。</p>';
+}
+function saveDiary(){
+  const day=document.getElementById("diaryDay").value;
+  const text=document.getElementById("diaryText").value.trim();
+  diaries[day]=text;
+  localStorage.setItem("tripDiariesV2", JSON.stringify(diaries));
+  renderDiary();
+  alert("日誌已儲存！");
+}
+function renderDiary(){
+  const list=document.getElementById("diaryList");
+  list.innerHTML=Object.keys(diaries).map(day=>`<div class="diaryBox"><b>${day}</b><p>${(diaries[day]||"").replace(/\\n/g,"<br>")}</p></div>`).join("") || '<p class="routeTip">還沒有日誌，旅行第一天再開始寫。</p>';
+}
+function copyDiary(){
+  const text=Object.keys(diaries).map(day=>`${day}\\n${diaries[day]}`).join("\\n\\n");
+  navigator.clipboard.writeText(text || "目前沒有日誌").then(()=>alert("已複製日誌！"));
+}
+renderExpenses(); renderDiary();
+</script>
+</body>
+</html>
